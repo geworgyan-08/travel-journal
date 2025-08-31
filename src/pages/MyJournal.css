@@ -33,8 +33,45 @@
   margin-top: 10px;
   width: 100%;
 }
+
 .empty-message {
   text-align: center;
   font-size: 18px;
   color: #888;
+}
+
+
+
+@media (max-width: 1024px) {
+  .journal-title {
+    font-size: 26px;
+  }
+  .journal-cards {
+    gap: 18px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .journal-title {
+    font-size: 24px;
+  }
+  .journal-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .trip-card {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .journal-title {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+  .empty-message {
+    font-size: 16px;
+  }
 }

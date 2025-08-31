@@ -19,9 +19,10 @@
   background: hsl(33, 91%, 32%);
   box-shadow: 0 15px 40px rgba(0,0,0,0.5);
   text-align: center;
+  transition: all 0.3s ease;
 }
 
-
+/* Login Title */
 .login-title {
   font-size: 28px;
   font-weight: 900;
@@ -30,4 +31,41 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+
+@media (max-width: 1024px) {
+  .login-card {
+    width: 400px;
+    padding: 30px 25px;
+  }
+  .login-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-background {
+    padding-top: 180px;
+  }
+  .login-card {
+    width: 320px;
+    padding: 25px 20px;
+  }
+  .login-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-background {
+    padding-top: 140px;
+  }
+  .login-card {
+    width: 90%;
+    padding: 20px 15px;
+  }
+  .login-title {
+    font-size: 20px;
+  }
 }
