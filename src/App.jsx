@@ -1,33 +1,28 @@
-import { Routes, Route } from "react-router-dom";
 
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { MyJournal } from "./pages/MyJournal";
-import { AddTrip } from "./pages/AddTrip";
-import { ProtectedRoute } from "./component/ProtectedRoute";
+import React, { Suspense } from "react";
+import { RouterProvider } from "react-router-dom";
+import { Router } from "./routes/router";
+import { Spin } from "antd";
+
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-
-      <Route
-          path="/my-journal"
-          element={
-            <ProtectedRoute>
-              <MyJournal />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/add-trip"
-          element={
-            <ProtectedRoute>
-              <AddTrip />
-            </ProtectedRoute>
-          }
-        />
-    </Routes>
+    <Suspense
+      fallback={
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            background: "linear-gradient(to right, #ff7f50, #ffb347)",
+          }}
+        >
+          <Spin size="large" tip="Loading..." />
+        </div>
+      }
+    >
+      <RouterProvider router={Router} />
+    </Suspense>
   );
 }

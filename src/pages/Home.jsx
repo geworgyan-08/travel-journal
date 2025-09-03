@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Card, Rate } from "antd";
 
 
-export function Home() {
+export default function Home() {
   const tours = [
     {
       id: 1,

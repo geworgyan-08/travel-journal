@@ -1,11 +1,11 @@
-// src/pages/MyJournal.jsx
+
 import React from "react";
 import { Card, Button } from "antd";
 import { useTripStore } from "../store/tripsStore";
 import { Header } from "../component/Header";
 import "./MyJournal.css";
 
-export function MyJournal() {
+export default function MyJournal() {
   const { tripsInJournal, removeTrip } = useTripStore();
 
   return (
@@ -30,7 +30,7 @@ export function MyJournal() {
                 key={trip.id}
                 hoverable
                 cover={<img alt={trip.title} src={trip.image} />}
-                className="trip-card"
+                className="trips-card"
               >
                 <h2>{trip.title}</h2>
                 <p>{trip.description}</p>

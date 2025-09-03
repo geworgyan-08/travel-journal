@@ -14,14 +14,14 @@ export function Header() {
         <Link to="/">Home</Link>
         <Link to="/add-trip">Add Trip</Link>
         <Link to="/my-journal">My Journal</Link>
-        <Link to="/login">Login</Link>
-        {isLoggedIn && (
-        <button
-          onClick={logout}
-        >
-          Logout
-        </button>
-      )}
+
+        {!isLoggedIn ? (
+          <Link to="/login">Login</Link>
+        ) : (
+          <button onClick={logout} className="logout-btn">
+            Logout
+          </button>
+        )}
       </nav>
     </header>
   );

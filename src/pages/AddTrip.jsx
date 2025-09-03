@@ -4,7 +4,7 @@ import { Header } from "../component/Header";
 import "./AddTrip.css"
 import { Card, Button, Rate } from "antd";
 import { useTripStore } from "../store/tripsStore";
-export function AddTrip(){
+export default function AddTrip(){
   const addTrip = useTripStore((state) => state.addTrip);
   
   const trips = [
