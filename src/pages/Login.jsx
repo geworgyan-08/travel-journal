@@ -3,19 +3,27 @@ import { Form, Input, Button, Card } from "antd";
 import "./Login.css";
 import { useAuthStore } from "../store/authStore";
 import { useNavigate } from "react-router";
-
+import { toast } from "react-toastify"; 
 
 export default function Login() {
   const navigate = useNavigate();
   const login = useAuthStore((state) => state.login);
 
-
   const handleLogin = (values) => {
     const { username, password } = values;
+    
     if (username.trim() !== "" && password.trim() !== "") {
       login(username, password); 
-      navigate("/my-journal");   
-    }
+
+     
+      toast.success("Login successfully 🎉", {
+        position: "top-right",
+   
+      });
+
+      navigate("/add-trip");   
+    } 
+    
   };
 
   return (

@@ -13,66 +13,111 @@
 
 .journal-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin-top: 40px;
+  justify-items: center;
 }
 
-.trips-card {
+.journal-trip-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 320px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  transition: all 0.3s;
-  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.trip-card:hover {
+.journal-trip-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
-.delete-btn {
-  margin-top: 10px;
+.journal-trip-image {
   width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
 }
 
-.empty-message {
+.journal-trip-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 12px 0 8px;
+  text-align: center;
+}
+
+.journal-trip-description {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 12px;
+  min-height: 60px;
+}
+
+.journal-trip-rate {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.journal-card-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+
+.journal-see-more-btn,
+.journal-delete-btn {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  min-width: 80px;
+}
+
+.journal-empty-message {
   text-align: center;
   font-size: 18px;
   color: #888;
+  grid-column: 1/-1;
 }
 
 
 
 @media (max-width: 1024px) {
-  .journal-title {
-    font-size: 26px;
-  }
   .journal-cards {
-    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
-
 
 @media (max-width: 768px) {
-  .journal-title {
-    font-size: 24px;
-  }
   .journal-cards {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 14px;
   }
-  .trip-card {
-    width: 100%;
+
+  .journal-trip-card {
+    max-width: 100%;
   }
 }
 
-
 @media (max-width: 480px) {
-  .journal-title {
-    font-size: 20px;
-    margin: 15px 0;
+  .journal-trip-title {
+    font-size: 1.1rem;
   }
-  .empty-message {
+
+  .journal-trip-description {
+    font-size: 0.95rem;
+  }
+
+  .journal-empty-message {
     font-size: 16px;
   }
 }

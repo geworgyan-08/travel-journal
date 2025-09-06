@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import { RouterProvider } from "react-router-dom";
 import { Router } from "./routes/router";
 import { Spin } from "antd";
+import { ToastContainer } from "react-toastify";
 
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
       }
     >
       <RouterProvider router={Router} />
+      <ToastContainer />
     </Suspense>
   );
 }

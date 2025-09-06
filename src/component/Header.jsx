@@ -1,11 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
+import { toast } from "react-toastify"; // 👈 import toast
 import "./Header.css";
 
 export function Header() {
   const logout = useAuthStore((state) => state.logout);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const navigate = useNavigate(); 
+
+  const handleLogout = () => {
+    logout(); 
+    toast.info("you went out 👋", {
+      position: "top-right",
+
+    });
+    navigate("/login"); 
+  };
 
   return (
     <header className="site-header">
@@ -18,7 +29,7 @@ export function Header() {
         {!isLoggedIn ? (
           <Link to="/login">Login</Link>
         ) : (
-          <button onClick={logout} className="logout-btn">
+          <button onClick={handleLogout} className="logout-btn">
             Logout
           </button>
         )}
